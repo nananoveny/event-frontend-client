@@ -98,7 +98,7 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            <Logo>SeventEvents</Logo>
+            <Logo>SevenEvents</Logo>
           </Link>
           <Menu>
             {/* <MenuItem></MenuItem> */}

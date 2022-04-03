@@ -123,7 +123,7 @@ const Intro = () => {
     <Container>
       <Left>
         <Title>
-          Chào mừng các bạn đến với <Logo>SeventEvents</Logo>
+          Chào mừng các bạn đến với <Logo>SevenEvents</Logo>
         </Title>
         <Desc>
           Nhanh chân kiếm cho mình một suất tham gia sự kiện bất kỳ nào!
