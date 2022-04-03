@@ -217,7 +217,7 @@ const InfoForm = () => {
         if (error.response.data.statusCode === 422) {
           setErrors(error.response.data.errors);
         } else {
-          toast.error('Opps. Something went wrong');
+          toast.error("Opps. Something went wrong");
         }
       }
     };
@@ -232,7 +232,7 @@ const InfoForm = () => {
       setErrors([]);
     };
   }, [errors]);
-  
+
   const isJoined = () => listIdEvents.find((event) => event === id);
 
   const fetchListEvent = async () => {
@@ -265,7 +265,6 @@ const InfoForm = () => {
       await login(dispatch, { email: email, password: password });
       window.location.reload();
     } catch (error) {
-      
       console.log(error.response);
     }
   };
@@ -308,10 +307,16 @@ const InfoForm = () => {
                     alt=""
                     height="100%"
                   />
-                  <span>Ngày: {singleEvent.data?.date}</span>
                   <span>Địa điểm: {singleEvent.data?.placeHost}</span>
                   <span>Địa chỉ: {singleEvent.data?.address}</span>
                   <span>Số lượng: {singleEvent.data?.quantity}</span>
+                  <span>
+                    Số người đã đăng ký:{" "}
+                    {singleEvent.data?.participantList.length}
+                  </span>
+                  <span>
+                    Ngày: {new Date(singleEvent.data?.date).toDateString()}
+                  </span>
                   <span>
                     Thời gian:{" "}
                     {new Date(singleEvent.data?.timeStart).toLocaleTimeString(
@@ -328,7 +333,6 @@ const InfoForm = () => {
                       }
                     )}
                   </span>
-                  <span>Ngày: {singleEvent.data?.date}</span>
                   {isJoined() ? (
                     <Button
                       onClick={handleJoin}
