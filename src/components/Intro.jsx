@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 // import Woman from '../img/woman.png'
 import AnimatedShapes from "./AnimatedShapes";
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 const Container = styled.div`
   height: calc(100vh - 50px);
   display: flex;
@@ -110,7 +116,9 @@ const Intro = () => {
           Nhanh chân kiếm cho mình một suất tham gia sự kiện bất kỳ nào!
         </Desc>
         <Info>
+          <Link to="/events">
           <Button>Tham gia ngay</Button>
+          </Link>
           <Contact>
             <Phone>Liên hệ +84 352 797 366</Phone>
             <ContactText>Để báo cáo sự cố hoặc giải đáp thắc mắc</ContactText>

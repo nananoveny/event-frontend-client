@@ -8,77 +8,53 @@ import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 import Price from "./components/Price";
 import Service from "./components/Service";
-
-const Container = styled.div`
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-`;
-
-const Shape = css`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-`;
-
-const IntoShape = styled.div`
-  ${Shape}
-  clip-path: polygon(67% 0, 100% 0%, 100% 100%, 55% 100%);
-  background-color: crimson;
-`;
-
-const FeatureShape = styled.div`
-  ${Shape}
-  clip-path: polygon(0 0, 55% 0%, 33% 100%, 0 100%);
-  background-color: pink;
-`;
-
-const ServiceShape = styled.div`
-  ${Shape}
-  clip-path: polygon(0 0, 33% 0%, 33% 100%, 0 100%);
-  background-color: #f88497;
-`;
-
-const PriceShape = styled.div`
-  ${Shape}
-  clip-path: polygon(33% 0, 100% 0%, 100% 100%, 67% 100%);
-  background-color: crimson;
-`;
+import Home from "./components/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
+import SingleEvent from "./components/SingleEvent";
+import Form from "./components/InfoForm";
+import InfoForm from "./components/InfoForm";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
-  const smallScreen = window.screen.width <= 480 ? true : false;
+  const user = useSelector((state) => state.user.currentUser);
   return (
-    // <>
-    //   <Container>
-    //     <Navbar />
-    //     <Intro />
-    //     <IntoShape />
-    //   </Container>
-    //   <Container>
-    //     <Feature />
-    //     <FeatureShape />
-    //   </Container>
-    //   <Container>
-    //     <Service />
-    //     {!smallScreen && <ServiceShape />}
-    //   </Container>
-    //   <Container>
-    //     <Price />
-    //     <PriceShape />
-    //   </Container>
-    //   <Container>
-    //     <Contact />
-    //     <Footer />
-    //   </Container>
-    // </>
+    <>
+      <Router>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route
+            path="login"
+            element={user ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="register"
+            element={user ? <Navigate to="/" /> : <Register />}
+          />
+
+          {/* <Route exact path="/register" element={<Register />} /> */}
+
+          <Route path="events" element={<Event />} />
+          <Route path="event/:eventID" element={<SingleEvent />} />
+          <Route path="event/register/:eventID" element={<InfoForm />} />
+        </Routes>
+      </Router>
+      <ToastContainer position="top-right" autoClose={5000} />
+    </>
     // <EventList />
-    <Container>
-      <Event />
-      {/* <EventCard /> */}
-    </Container>
+    // <Container>
+    //   <Event />
+    // </Container>
+    // <InfoForm />
   );
 };
 

@@ -140,7 +140,7 @@ const Contact = () => {
   return (
     <Container>
       <Wrapper>
-        <FormContainer>
+        {/* <FormContainer>
           <Title>
             Questions? <br /> Let's Get In Touch
           </Title>
@@ -155,21 +155,23 @@ const Contact = () => {
               <Button>Send</Button>
             </RightForm>
           </Form>
-        </FormContainer>
+        </FormContainer> */}
         <AddressContainer>
           <AddressItem>
             <Icon src={Map} />
-            <Text>123 Park Avenue St., New York, USA</Text>
+            <Text>ĐC liên hệ: 17a D34 P. Linh Đông, Q. Thủ Dức, Tp. HCM</Text>
           </AddressItem>
           <AddressItem>
             <Icon src={Phone} />
-            <Text>+1 631 1234 5678</Text>
-            <Text>+1 326 1234 5678</Text>
+            <Text>+84 352 797 366</Text>
+            <Text>||</Text>
+
+            <Text>+84 327 000 366</Text>
           </AddressItem>
           <AddressItem>
             <Icon src={Send} />
-            <Text>contact@lama.dev</Text>
-            <Text>sales@lama.dev</Text>
+            <Text>tranletrithuc60thgmail.com</Text>
+            {/* <Text>sales@lama.dev</Text> */}
           </AddressItem>
         </AddressContainer>
       </Wrapper>

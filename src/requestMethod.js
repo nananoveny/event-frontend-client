@@ -1,16 +1,21 @@
 import axios from "axios";
-const BASE_URL = "https://events-api-nhatan.herokuapp.com/";
-const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQ0MGIyNGZmN2VlYWE2MjQ4YmM2MGUiLCJmaXJzdE5hbWUiOiJBbiIsImxhc3ROYW1lIjoiTmjhuq10IiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NDg3NDA5Nzl9.NkDMzAYeHBZ1eIbGn5zzJOUFGbiyLvRUQ7OJ_aSidDs";
-const config = {
-  headers: { Authorization: `Nguyen ${TOKEN}` },
-};
+import configData from "./config.json";
+
+const BASE_URL = configData.API_ENDPOINT;
+
+try {
+  const local = JSON.parse(localStorage.getItem("persist:root"));
+  const localUser = JSON.parse(local.user);
+  var userToken = localUser.currentUser.data.accessToken;
+} catch (error) {
+  console.log(error);
+}
+
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
 });
 
-export const adminRequest = axios.create({
+export const userRequest = axios.create({
   baseURL: BASE_URL,
-  headers: { Authorization: `Bearer ${TOKEN}` },
-  // config,
+  headers: { Authorization: `Bearer ${userToken}` },
 });

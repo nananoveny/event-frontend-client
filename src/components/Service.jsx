@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 // import How from "../img/how.png";
 import MiniCard from "./MiniCard";
-import Play from "../img/play.png";
-
+// import Play from "../img/play.png";
+import { mem } from "../members";
 const Container = styled.div`
   display: flex;
   height: 100%;
   @media only screen and (max-width: 480px) {
     flex-direction: column;
   }
+  /* flex-direction: column; */
+  position: relative;
 `;
 
 const Left = styled.div`
@@ -114,46 +116,23 @@ const Service = () => {
     <Container>
       <Left>
         {/* <Image open={open} src={How} /> */}
-        <Video
-          open={open}
-          autoPlay
-          loop
-          controls
-          src="https://player.vimeo.com/external/449759244.sd.mp4?s=d5f3da46ddc17aa69a7de84f1e420610ebd2a391&profile_id=139&oauth2_token_id=57447761"
-        />
+    
       </Left>
       <Right>
         <Wrapper>
-          <Title>Simple process to start</Title>
+          <Title>Đội Hạnh Phúc Của Chúng Tôi</Title>
           <Desc>
-            We provide digital experience services to startups and small
-            businesses to looking for a partner of their digital media, design &
-            development, lead generation and communications requirents. We work
-            with you, not for you. Although we have a great resources
+            Sevenevents là một đội ngũ đầy đủ dịch vụ với các chuyên gia về dịch
+            vụ, chăm sóc khách hàng, hổ trợ tạo sự kiện một cách thuận tiện và
+            nhanh chóng.
           </Desc>
           <CardContainer>
-            <MiniCard />
-            <MiniCard />
-            <MiniCard />
+            {mem.map((item) => (
+              <MiniCard item={item} key={item.id} />
+            ))}
           </CardContainer>
-          <Button onClick={() => setOpen(true)}>
-            <Icon src={Play} />
-            How it works
-          </Button>
         </Wrapper>
       </Right>
-      {smallScreen && open && (
-        <Modal>
-          <Video
-            open={open}
-            autoPlay
-            loop
-            controls
-            src="https://player.vimeo.com/external/449759244.sd.mp4?s=d5f3da46ddc17aa69a7de84f1e420610ebd2a391&profile_id=139&oauth2_token_id=57447761"
-          />
-          <CloseButton onClick={() => setOpen(false)}>Close</CloseButton>
-        </Modal>
-      )}
     </Container>
   );
 };
