@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const userSilce = createSlice({
   name: "user",
@@ -16,6 +17,7 @@ const userSilce = createSlice({
       state.currentUser = action.payload;
     },
     loginFailure: (state) => {
+      toast.error("Email or password is incorrect");
       state.isFetching = false;
       state.error = true;
     },

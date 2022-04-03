@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import { login } from "../redux/apiCall";
 import { toast } from "react-toastify";
+import { getUrlImg } from "../utils/helpers.util";
 
 const Container = styled.div`
   height: 100vh;
@@ -185,6 +186,7 @@ const InfoForm = () => {
     // navigate("/login");
   }, []);
 
+  const [errors, setErrors] = useState([]);
   const location = useLocation();
   const id = location.pathname.split("/")[3];
   const [firstName, setFirstName] = useState("");
@@ -212,12 +214,25 @@ const InfoForm = () => {
         const res = await publicRequest.get("/event/" + id);
         setSingleEvent(res.data);
       } catch (error) {
-        console.log(error);
+        if (error.response.data.statusCode === 422) {
+          setErrors(error.response.data.errors);
+        } else {
+          toast.error('Opps. Something went wrong');
+        }
       }
     };
     getSingleEvent();
   }, [id]);
 
+  useEffect(() => {
+    errors.map((error) => {
+      return toast.error(error.message);
+    });
+    return () => {
+      setErrors([]);
+    };
+  }, [errors]);
+  
   const isJoined = () => listIdEvents.find((event) => event === id);
 
   const fetchListEvent = async () => {
@@ -250,6 +265,7 @@ const InfoForm = () => {
       await login(dispatch, { email: email, password: password });
       window.location.reload();
     } catch (error) {
+      
       console.log(error.response);
     }
   };
@@ -283,27 +299,15 @@ const InfoForm = () => {
               <Title>Tham gia ngay đi ạ!</Title>
 
               <Form>
-                <LeftForm>
-                  {isJoined() ? (
-                    <Button
-                      onClick={handleJoin}
-                      disabled={isJoined()}
-                      inputColor="red"
-                    >
-                      Đã tham gia
-                    </Button>
-                  ) : (
-                    <Button
-                      onClick={handleJoin}
-                      disabled={isJoined()}
-                      inputColor="teal"
-                    >
-                      Tham gia
-                    </Button>
-                  )}
-                </LeftForm>
+                {/* <LeftForm> */}
+
+                {/* </LeftForm> */}
                 <RightForm>
-                  <img src={singleEvent.data?.image} alt="" height="100%" />
+                  <img
+                    src={getUrlImg(singleEvent.data?.image)}
+                    alt=""
+                    height="100%"
+                  />
                   <span>Ngày: {singleEvent.data?.date}</span>
                   <span>Địa điểm: {singleEvent.data?.placeHost}</span>
                   <span>Địa chỉ: {singleEvent.data?.address}</span>
@@ -325,6 +329,23 @@ const InfoForm = () => {
                     )}
                   </span>
                   <span>Ngày: {singleEvent.data?.date}</span>
+                  {isJoined() ? (
+                    <Button
+                      onClick={handleJoin}
+                      disabled={isJoined()}
+                      inputColor="red"
+                    >
+                      Đã tham gia
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={handleJoin}
+                      disabled={isJoined()}
+                      inputColor="teal"
+                    >
+                      Tham gia
+                    </Button>
+                  )}
                 </RightForm>
               </Form>
             </FormContainer>

@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethod";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import { getUrlImg } from "../utils/helpers.util";
+
 const Container = styled.div`
   width: 100%;
   margin-right: 50px;
@@ -110,7 +112,7 @@ const SingleEvent = () => {
     <>
       <Navbar />
       <Container>
-        <img src={singleitem.image} alt="" />
+        <img src={getUrlImg(singleitem.image)} alt="" />
         <img src={singleitem.qrImage} alt="" width="350px" />
 
         <Type>Còn chỗ</Type>
