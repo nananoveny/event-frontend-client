@@ -112,8 +112,8 @@ const SingleEvent = () => {
     <>
       <Navbar />
       <Container>
-        <img src={getUrlImg(singleitem.image)} alt="" />
-        <img src={singleitem.qrImage} alt="" width="350px" />
+        <img src={getUrlImg(singleitem.image)} alt="" height="300px" />
+        <img src={singleitem.qrImage} alt="" width="200px" />
 
         <Type>Còn chỗ</Type>
         <List>
