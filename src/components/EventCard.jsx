@@ -45,6 +45,7 @@ const Container = styled.div`
     margin-right: 0;
     margin-bottom: 10px;
     padding: 10px;
+    flex-direction: column;
   }
 `;
 

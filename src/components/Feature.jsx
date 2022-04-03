@@ -35,7 +35,7 @@ const Right = styled.div`
 const Title = styled.span`
   font-size: 60px;
   @media only screen and (max-width: 480px) {
-    font-size: 50px;
+    font-size: 30px;
   }
 `;
 
@@ -44,12 +44,18 @@ const SubTitle = styled.span`
   font-style: italic;
   color: #333;
   margin-top: 30px;
+  @media only screen and (max-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 const Desc = styled.p`
   font-size: 20px;
   color: #777;
   margin-top: 30px;
+  @media only screen and (max-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 const Button = styled.button`
@@ -62,6 +68,10 @@ const Button = styled.button`
   border-radius: 20px;
   margin-top: 20px;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    font-size: 15px;
+    padding: 5px 5px;
+  }
 `;
 
 const Feature = () => {

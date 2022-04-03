@@ -21,7 +21,12 @@ const Container = styled.div`
   /* background-repeat: no-repeat; 
   background-size: cover; */
   background-color: #ffe8ed;
+  /* display: flex; */
   object-fit: cover;
+  @media only screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -30,9 +35,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media only screen and (max-width: 480px) {
-    flex-direction: column;
-  }
 `;
 
 const FormContainer = styled.div`
@@ -42,17 +44,17 @@ const FormContainer = styled.div`
   align-items: center;
   width: 50%;
   @media only screen and (max-width: 480px) {
-    width: 100%;
+    width: 110%;
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 20px;
   margin-top: 0;
   align-content: center;
   justify-content: center;
   @media only screen and (max-width: 480px) {
-    margin: 20px;
+    margin: 5px;
   }
 `;
 
@@ -64,28 +66,33 @@ const Form = styled.form`
   justify-content: center;
   @media only screen and (max-width: 480px) {
     flex-direction: column;
+    /* justify-content: space-between; */
   }
 `;
 
 const LeftForm = styled.div`
   height: 100%;
-  /* width: 50%; */
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-right: 20px;
   @media only screen and (max-width: 480px) {
     height: 50%;
-    margin-right: 0;
+    margin-top: 350px;
+
+    /* margin-right: 0; */
   }
 `;
 
 const RightForm = styled.div`
   height: 100%;
   display: flex;
+
   flex-direction: column;
   justify-content: space-between;
   @media only screen and (max-width: 480px) {
+    margin-top: 330px;
     height: 50%;
   }
 `;
@@ -95,6 +102,7 @@ const Input = styled.input`
   padding: 12px;
   margin-bottom: 10px;
   @media only screen and (max-width: 480px) {
+    width: 200px;
     padding: 5px;
   }
   border-radius: 10px;
@@ -105,6 +113,8 @@ const Select = styled.select`
   padding: 12px;
   margin-bottom: 10px;
   @media only screen and (max-width: 480px) {
+    width: 200px;
+
     padding: 5px;
   }
   border-radius: 10px;
@@ -217,7 +227,7 @@ const InfoForm = () => {
         if (error.response.data.statusCode === 422) {
           setErrors(error.response.data.errors);
         } else {
-          toast.error("Opps. Something went wrong");
+          toast.error("Có gì đó không ổn!");
         }
       }
     };
@@ -275,7 +285,7 @@ const InfoForm = () => {
       await userRequest.put("/event/join/" + id, {
         userId: decoded1._id,
       });
-      toast.success("Join successfully");
+      toast.success("Thành công");
       fetchListEvent();
     } catch (error) {
       if (error.response.data.hasOwnProperty("errors")) {
@@ -412,11 +422,17 @@ const InfoForm = () => {
                     onChange={(e) => setBirthDay(e.target.value)}
                   />
                   {/* <Link to="/register"> */}
-                  <Button onClick={handleCreateJoin}>Tham gia</Button>
+                  <Button onClick={handleCreateJoin} inputColor="teal">
+                    Tham gia
+                  </Button>
                   {/* </Link> */}
                 </LeftForm>
                 <RightForm>
-                  <img src={singleEvent.data?.image} alt="" height="100%" />
+                  <img
+                    src={getUrlImg(singleEvent.data?.image)}
+                    alt=""
+                    height="100%"
+                  />
                   <span>Ngày: {singleEvent.data?.date}</span>
                   <span>Địa điểm: {singleEvent.data?.placeHost}</span>
                   <span>Địa chỉ: {singleEvent.data?.address}</span>

@@ -35,7 +35,7 @@ const Title = styled.h1`
   font-size: 50px;
   @media only screen and (max-width: 480px) {
     width: 100%;
-    font-size: 50px;
+    font-size: 20px;
   }
 `;
 
@@ -45,6 +45,7 @@ const Desc = styled.p`
   margin-top: 20px;
   @media only screen and (max-width: 480px) {
     width: 100%;
+    font-size: 15px;
   }
 `;
 
@@ -63,6 +64,9 @@ const Logo = styled.h1`
   font-weight: bold;
   text-decoration: underline crimson;
   font-size: 60px;
+  @media only screen and (max-width: 480px) {
+    font-size: 30px;
+  }
 `;
 const Button = styled.button`
   padding: 15px;
@@ -76,6 +80,9 @@ const Button = styled.button`
   font-size: 20px;
   @media only screen and (max-width: 480px) {
     margin-bottom: 20px;
+
+    padding: 5px;
+    font-size: 15px;
   }
 `;
 
@@ -87,11 +94,17 @@ const Contact = styled.div`
 const Phone = styled.span`
   color: #f0667d;
   font-weight: bold;
+  @media only screen and (max-width: 480px) {
+    font-size: 13px;
+  }
 `;
 
 const ContactText = styled.span`
   color: gray;
   margin-top: 5px;
+  @media only screen and (max-width: 480px) {
+    font-size: 13px;
+  }
 `;
 
 const Right = styled.div`
@@ -117,7 +130,7 @@ const Intro = () => {
         </Desc>
         <Info>
           <Link to="/events">
-          <Button>Tham gia ngay</Button>
+            <Button>Tham gia</Button>
           </Link>
           <Contact>
             <Phone>Liên hệ +84 352 797 366</Phone>

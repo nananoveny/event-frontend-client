@@ -26,6 +26,10 @@ const IntoShape = styled.div`
   clip-path: polygon(67% 0, 100% 0%, 100% 100%, 55% 100%);
   background-color: crimson;
   z-index: 99;
+  @media only screen and (max-width: 480px) {
+    clip-path: polygon(87% 0, 100% 0%, 100% 100%, 55% 100%);
+    z-index: 1;
+  }
 `;
 const H1 = styled.h1`
   /* ... */
@@ -34,6 +38,9 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 480px) {
+    z-index: 1;
+  }
 `;
 const Input = styled.input`
   width: 200px;
@@ -42,6 +49,10 @@ const Input = styled.input`
   padding: 5px 20px;
   border-radius: 5px;
   border: 1px;
+  @media only screen and (max-width: 480px) {
+    width: 150px;
+    height: 20px;
+  }
 `;
 const Button = styled.button`
   width: 200px;
@@ -53,6 +64,10 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   padding: 5px 20px;
+  @media only screen and (max-width: 480px) {
+    width: 150px;
+    height: 30px;
+  }
 `;
 const Span = styled.span`
   font-size: 12px;
@@ -63,6 +78,11 @@ const Span1 = styled.span`
   font-size: 15px;
   color: #080707;
   margin-top: 10px;
+  @media only screen and (max-width: 480px) {
+    width: 150px;
+    height: 30px;
+    font-size: 12px;
+  }
 `;
 const Login = () => {
   const [email, setEmail] = useState("");

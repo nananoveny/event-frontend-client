@@ -17,7 +17,7 @@ const userSilce = createSlice({
       state.currentUser = action.payload;
     },
     loginFailure: (state) => {
-      toast.error("Email or password is incorrect");
+      toast.error("Email hoặc mật khẩu không đúng");
       state.isFetching = false;
       state.error = true;
     },

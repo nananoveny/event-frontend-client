@@ -63,12 +63,18 @@ const Desc = styled.p`
   font-size: 20px;
   margin-top: 20px;
   color: #555;
+  @media only screen and (max-width: 480px) {
+    font-size: 15px;
+  }
 `;
 
 const CardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
+  @media only screen and (max-width: 480px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Button = styled.button`
@@ -114,10 +120,7 @@ const Service = () => {
   const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <Container>
-      <Left>
-        {/* <Image open={open} src={How} /> */}
-    
-      </Left>
+      <Left>{/* <Image open={open} src={How} /> */}</Left>
       <Right>
         <Wrapper>
           <Title>Đội Hạnh Phúc Của Chúng Tôi</Title>

@@ -8,7 +8,7 @@ export const mem = [
     id: 2,
 
     name: "Thức",
-    img: "https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277765927_181575960858937_152712490190501361_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_ohc=5k2cU-V7GcoAX8P9ZDE&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-MPVv51KO4HTQ2J-35hzI4M0_MLztvI6sSP7JUwcWs6w&oe=624B3BD6",
+    img: "https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/277707188_181575920858941_85987514390598685_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=l54_F6xsO9EAX-JBD_K&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT88yM5QnuKSLQhxMKNL6VTtk7bDOXHCApgMvy8uELI8oQ&oe=624EB3CB",
   },
   {
     id: 3,

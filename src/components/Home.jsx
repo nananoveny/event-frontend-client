@@ -31,6 +31,10 @@ const IntoShape = styled.div`
   clip-path: polygon(67% 0, 100% 0%, 100% 100%, 55% 100%);
   background-color: crimson;
   z-index: 99;
+  @media only screen and (max-width: 480px) {
+    clip-path: polygon(87% 0, 100% 0%, 100% 100%, 55% 100%);
+    z-index: -1;
+  }
 `;
 
 const FeatureShape = styled.div`

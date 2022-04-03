@@ -31,6 +31,9 @@ const Logo = styled.h1`
   font-weight: bold;
   text-decoration: underline crimson;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const Menu = styled.ul`
@@ -38,7 +41,8 @@ const Menu = styled.ul`
   list-style: none;
   /* margin-left: 50px; */
   @media only screen and (max-width: 480px) {
-    display: none;
+    /* display: none; */
+    z-index: 99;
   }
 `;
 
@@ -48,6 +52,11 @@ const MenuItem = styled.li`
   font-weight: bold;
   color: gray;
   cursor: pointer;
+  @media only screen and (max-width: 480px) {
+    font-size: 10px;
+    margin-right: 20px;
+    color: black;
+  }
 `;
 
 const Button = styled.button`
