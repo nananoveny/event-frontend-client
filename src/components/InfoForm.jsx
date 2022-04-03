@@ -94,6 +94,7 @@ const RightForm = styled.div`
   @media only screen and (max-width: 480px) {
     margin-top: 330px;
     height: 50%;
+    position: relative;
   }
 `;
 
